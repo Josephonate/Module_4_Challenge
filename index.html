@@ -13,16 +13,24 @@
     <div class="container">
         <button id="start-btn">Take Quiz</button>
         <button id="score-btn">High Score</button>
-        <P>
-            
-        </P>
-        <div id="answer-btns">
-            <button class="btn">Answer A</button>
-            <button class="btn">Answer B</button>
-            <button class="btn">Answer C</button>
-            <button class="btn">Answer D</button>
+        <h2 id="question" class="hide"></h2>
+        <div id="answer-btn" class="hide">
+            <ul>
+                <li>
+                    <button class="btn">Answer A</button>
+                </li>
+                <li>
+                    <button class="btn">Answer B</button>
+                </li>
+                <li>
+                    <button class="btn">Answer C</button>
+                </li>
+                <li>
+                    <button class="btn">Answer D</button>
+                </li>
+            </ul>
         </div>
-        <button id ="next-btn">Next</button>
+        <button id="next-btn" class="hide" onclick="showNextQuestion()">Next</button>
     </div>
     <script src="./assests/script.js"></script>
 </body>

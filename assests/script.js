@@ -7,8 +7,8 @@
 
 const questionsArray = [
     {
-        question: "Inside which HTML element do we put the JavaScript?",
-        answers: [
+        "question": "Inside which HTML element do we put the JavaScript?",
+        "answers": [
             { text: "<scripting>", correct: true },
             { text: "<script>", correct: false },
             { text: "<javascript>", correct: false },
@@ -16,9 +16,9 @@ const questionsArray = [
         ]
     },
     {
-        question: "Which event occurs when the user clicks on an HTML element?",
+        "question": "Which event occurs when the user clicks on an HTML element?",
 
-        answers: [
+        "answers": [
             { text: "onchange", correct: false },
             { text: "onmouseover", correct: false },
             { text: "onmouseclick", correct: false },
@@ -53,9 +53,24 @@ const questionsArray = [
         ]
     }
 ]
-var questions
+var questionIndex = 0;
 
-const questionElement = document.getElementById("questions");
+function showQuestion(){
+    var currentQuestion = questionsArray[questionIndex];
+
+    document.getElementById("question").textContent = currentQuestion.question
+
+}
+
+function showNextQuestion(){
+    questionIndex++
+    if(questionIndex < questionsArray.length){
+        showQuestion()
+    }
+}
+showQuestion()
+
+const questionElement = document.getElementById("question");
 const answerButton = document.getElementById("answer-btn");
 const nextButton = document.getElementById("next-btn");
 const startButton = document.getElementById("start-btn");
@@ -64,6 +79,8 @@ const highScore = document.getElementById("score-btn");
 startButton.addEventListener("click", function () {
     startButton.classList.add("hide");
     highScore.classList.add("hide");
-
+    answerButton.classList.remove("hide");
+    nextButton.classList.remove("hide");
+    questionElement.classList.remove("hide");
 })
 

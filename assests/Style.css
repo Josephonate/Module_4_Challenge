@@ -13,16 +13,38 @@ h1 {
     align-content: center;
     justify-content: center;
     font-size: 50px;
+    border: 2px solid black;
 
 }
 
 .container {
     display: flex;
     justify-content: center;
-    justify-items: 
+    border: 2px solid black;
 
 }
 
 .hide {
     display: none;
+}
+
+h2 {
+    display: flex;
+    margin: 0, auto;
+    align-content: center;
+    justify-content: center;
+    border: 2px solid black;
+}
+
+ul {
+    display: flexbox;
+
+}
+
+li {
+    display:flex;
+    margin: 0, auto;
+    padding: 5px;
+    list-style: none;
+    border: 2px solid black;
 }
