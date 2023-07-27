@@ -5,56 +5,65 @@
 // At the end of the quiz I then need to display the score and a box for the player to input their name 
 // This will save the players scores for later viewing.
 
-const questions = [
+const questionsArray = [
     {
         question: "Inside which HTML element do we put the JavaScript?",
         answers: [
-            {text: "<scripting>", correct: true},
-            {text: "<script>", correct: false},
-            {text: "<javascript>", correct: false},
-            {text: "<js>", correct: false},
+            { text: "<scripting>", correct: true },
+            { text: "<script>", correct: false },
+            { text: "<javascript>", correct: false },
+            { text: "<js>", correct: false },
         ]
     },
     {
         question: "Which event occurs when the user clicks on an HTML element?",
 
         answers: [
-            {text: "onchange", correct: false},
-            {text: "onmouseover", correct: false},
-            {text: "onmouseclick", correct: false},
-            {text: "onclick", correct: true},
+            { text: "onchange", correct: false },
+            { text: "onmouseover", correct: false },
+            { text: "onmouseclick", correct: false },
+            { text: "onclick", correct: true },
         ]
     },
     {
         question: "Which operator is used to assign a value to a variable",
         answers: [
-            {text: "=", correct: true},
-            {text: "X", correct: false},
-            {text: "*", correct: false},
-            {text: "-", correct: false},
+            { text: "=", correct: true },
+            { text: "X", correct: false },
+            { text: "*", correct: false },
+            { text: "-", correct: false },
         ]
     },
     {
         question: "How to write an IF statement in JavaScript?",
         answers: [
-            {text: "if i==5 then", correct: false},
-            {text: "if (i==5)", correct: true},
-            {text: "if i=5 then", correct: false},
-            {text: "if i=5", correct: false},
+            { text: "if i==5 then", correct: false },
+            { text: "if (i==5)", correct: true },
+            { text: "if i=5 then", correct: false },
+            { text: "if i=5", correct: false },
         ]
     },
     {
         question: "How does a FOR loop start?",
         answers: [
-            {text: "for (i=0;i<=5;i++)", correct: true},
-            {text: "for (i=0;i<=5)", correct: false},
-            {text: "for i= 1 to 5", correct: false},
-            {text: "for (i<=5;i++", correct: false},
+            { text: "for (i=0;i<=5;i++)", correct: true },
+            { text: "for (i=0;i<=5)", correct: false },
+            { text: "for i= 1 to 5", correct: false },
+            { text: "for (i<=5;i++", correct: false },
         ]
     }
 ]
+var questions
 
-const questionElement = document.getElementById("question");
+const questionElement = document.getElementById("questions");
 const answerButton = document.getElementById("answer-btn");
 const nextButton = document.getElementById("next-btn");
+const startButton = document.getElementById("start-btn");
+const highScore = document.getElementById("score-btn");
+
+startButton.addEventListener("click", function () {
+    startButton.classList.add("hide");
+    highScore.classList.add("hide");
+
+})
 
