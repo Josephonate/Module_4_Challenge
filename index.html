@@ -13,25 +13,27 @@
     <div class="container">
         <button id="start-btn">Take Quiz</button>
         <button id="score-btn">High Score</button>
-        <h2 id="question" class="hide"></h2>
+           <h2 id="question" class="hide"></h2>
+ 
         <div id="answer-btn" class="hide">
             <ul>
                 <li>
-                    <button class="btn">Answer A</button>
+                    <button id="ans_a"></button>
                 </li>
                 <li>
-                    <button class="btn">Answer B</button>
+                    <button id="ans_b"></button>
                 </li>
                 <li>
-                    <button class="btn">Answer C</button>
+                    <button id="ans_c"></button>
                 </li>
                 <li>
-                    <button class="btn">Answer D</button>
+                    <button id="ans_d"></button>
                 </li>
             </ul>
         </div>
-        <button id="next-btn" class="hide" onclick="showNextQuestion()">Next</button>
-    </div>
+       <button id="next-btn" class="hide" onclick="showNextQuestion()", onclick="showNextAnswer()">Next</button>
+    
+    </div>        
     <script src="./assests/script.js"></script>
 </body>
 

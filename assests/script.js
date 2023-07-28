@@ -7,74 +7,80 @@
 
 const questionsArray = [
     {
-        "question": "Inside which HTML element do we put the JavaScript?",
-        "answers": [
-            { text: "<scripting>", correct: true },
-            { text: "<script>", correct: false },
-            { text: "<javascript>", correct: false },
-            { text: "<js>", correct: false },
-        ]
+        question: "Inside which HTML element do we put the JavaScript?",
+
+        ans_a: "<scripting>", correct: true,
+        ans_b: "<script>", correct: false,
+        ans_c: "<javascript>", correct: false,
+        ans_d: "<js>", correct: false,
+
     },
     {
-        "question": "Which event occurs when the user clicks on an HTML element?",
+        question: "Which event occurs when the user clicks on an HTML element?",
 
-        "answers": [
-            { text: "onchange", correct: false },
-            { text: "onmouseover", correct: false },
-            { text: "onmouseclick", correct: false },
-            { text: "onclick", correct: true },
-        ]
+
+        ans_a: "onchange", correct: false,
+        ans_b: "onmouseover", correct: false,
+        ans_c: "onmouseclick", correct: false,
+        ans_d: "onclick", correct: true,
+
     },
     {
         question: "Which operator is used to assign a value to a variable",
-        answers: [
-            { text: "=", correct: true },
-            { text: "X", correct: false },
-            { text: "*", correct: false },
-            { text: "-", correct: false },
-        ]
+
+        ans_a: "=", correct: true,
+        ans_b: "X", correct: false,
+        ans_c: "*", correct: false,
+        ans_d: "-", correct: false,
+
     },
     {
         question: "How to write an IF statement in JavaScript?",
-        answers: [
-            { text: "if i==5 then", correct: false },
-            { text: "if (i==5)", correct: true },
-            { text: "if i=5 then", correct: false },
-            { text: "if i=5", correct: false },
-        ]
+
+        ans_a: "if i==5 then", correct: false,
+        ans_b: "if (i==5)", correct: true,
+        ans_c: "if i=5 then", correct: false,
+        ans_d: "if i=5", correct: false,
+
     },
     {
         question: "How does a FOR loop start?",
-        answers: [
-            { text: "for (i=0;i<=5;i++)", correct: true },
-            { text: "for (i=0;i<=5)", correct: false },
-            { text: "for i= 1 to 5", correct: false },
-            { text: "for (i<=5;i++", correct: false },
-        ]
+
+        ans_a: "for (i=0;i<=5;i++)", correct: true,
+        ans_b: "for (i=0;i<=5)", correct: false,
+        ans_c: "for i= 1 to 5", correct: false,
+        ans_d: "for (i<=5;i++", correct: false,
+
     }
 ]
+const questionElement = document.getElementById("question");
+const answerButton = document.getElementById("answer-btn");
+const ans_a = document.getElementById("ans_b")
+const ans_b = document.getElementById("ans_c")
+const ans_c = document.getElementById("ans_d")
+const ans_d = document.getElementById("ans_a")
+const nextButton = document.getElementById("next-btn");
+const startButton = document.getElementById("start-btn");
+const highScore = document.getElementById("score-btn");
 var questionIndex = 0;
 
-function showQuestion(){
+function showQuestion() {
     var currentQuestion = questionsArray[questionIndex];
 
-    document.getElementById("question").textContent = currentQuestion.question
-
+    document.getElementById("question").textContent = currentQuestion.question;
+    document.getElementById("ans_a").textContent = currentQuestion.ans_a;
+    document.getElementById("ans_b").textContent = currentQuestion.ans_b;
+    document.getElementById("ans_c").textContent = currentQuestion.ans_c;
+    document.getElementById("ans_d").textContent = currentQuestion.ans_d;
 }
 
-function showNextQuestion(){
+function showNextQuestion() {
     questionIndex++
-    if(questionIndex < questionsArray.length){
+    if (questionIndex < questionsArray.length) {
         showQuestion()
     }
 }
 showQuestion()
-
-const questionElement = document.getElementById("question");
-const answerButton = document.getElementById("answer-btn");
-const nextButton = document.getElementById("next-btn");
-const startButton = document.getElementById("start-btn");
-const highScore = document.getElementById("score-btn");
 
 startButton.addEventListener("click", function () {
     startButton.classList.add("hide");

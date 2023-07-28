@@ -19,6 +19,8 @@ h1 {
 
 .container {
     display: flex;
+    margin: auto;
+    width: 50%;
     justify-content: center;
     border: 2px solid black;
 
@@ -30,21 +32,40 @@ h1 {
 
 h2 {
     display: flex;
-    margin: 0, auto;
-    align-content: center;
-    justify-content: center;
+    margin: auto;
+    align-items: flex-start;
+    /* align-content: center; */
+    /* justify-content: center; */
     border: 2px solid black;
 }
 
 ul {
     display: flexbox;
+    margin: auto;
 
 }
 
 li {
     display:flex;
-    margin: 0, auto;
+    margin: auto;
     padding: 5px;
+    justify-content: center;
     list-style: none;
     border: 2px solid black;
+}
+
+/*  #next-btn{
+    display: flex;
+    /* margin: auto; */
+    /* width: 5%; */
+    /* width: 75%; */
+    /* justify-content: center;
+    border: 2px black solid; */
+     
+.green{
+    background-color: green;
+}
+
+.red {
+    background-color: red;
 }
