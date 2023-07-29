@@ -5,6 +5,7 @@
 // At the end of the quiz I then need to display the score and a box for the player to input their name 
 // This will save the players scores for later viewing.
 
+// This is my question bank
 const questionsArray = [
     {
         question: "Inside which HTML element do we put the JavaScript?",
@@ -64,6 +65,7 @@ const startButton = document.getElementById("start-btn");
 const highScore = document.getElementById("score-btn");
 var questionIndex = 0;
 
+// This function shows my question and answers
 function showQuestion() {
     var currentQuestion = questionsArray[questionIndex];
 
@@ -73,7 +75,7 @@ function showQuestion() {
     document.getElementById("ans_c").textContent = currentQuestion.ans_c;
     document.getElementById("ans_d").textContent = currentQuestion.ans_d;
 }
-
+// This function goes to the next set of questions after I push next
 function showNextQuestion() {
     questionIndex++
     if (questionIndex < questionsArray.length) {
@@ -81,7 +83,7 @@ function showNextQuestion() {
     }
 }
 showQuestion()
-
+// this is my event listener so that I can hide my start buttons and show my questions.
 startButton.addEventListener("click", function () {
     startButton.classList.add("hide");
     highScore.classList.add("hide");
@@ -90,3 +92,12 @@ startButton.addEventListener("click", function () {
     questionElement.classList.remove("hide");
 })
 
+function verifyAnswer() {
+
+    if (ans_a && correct === true) {
+        document.getElementById("ans_a").style.color = "green";
+    } else {
+        document.getElementById("ans_a").style.color = "red";
+    }
+}
+verifyAnswer()
