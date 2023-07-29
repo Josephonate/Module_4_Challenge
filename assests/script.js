@@ -94,10 +94,25 @@ startButton.addEventListener("click", function () {
 
 function verifyAnswer() {
 
-    if (ans_a && correct === true) {
+    if (questionsArray.ans_a && questionsArray.correct === true) {
         document.getElementById("ans_a").style.color = "green";
     } else {
         document.getElementById("ans_a").style.color = "red";
     }
+    if (questionsArray.ans_a && questionsArray.correct === true) {
+        document.getElementById("ans_b").style.color = "green";
+    } else {
+        document.getElementById("ans_b").style.color = "red";
+    }
+    if (questionsArray.ans_a && questionsArray.correct === true) {
+        document.getElementById("ans_c").style.color = "green";
+    } else {
+        document.getElementById("ans_c").style.color = "red";
+    }
+    if (questionsArray.ans_a && questionsArray.correct === true) {
+        document.getElementById("ans_d").style.color = "green";
+    } else {
+        document.getElementById("ans_d").style.color = "red";
+    }
 }
-verifyAnswer()
+// verifyAnswer()
