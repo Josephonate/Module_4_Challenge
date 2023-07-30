@@ -83,9 +83,9 @@ function checkAnswer(event) {
   const correctAnswer = questionsArray[currentQuestionIndex].correct;
 
   if (selectedChoice === correctAnswer) {
-    // Implement logic for correct answer
+    
   } else {
-    // Implement logic for incorrect answer (subtract time)
+    // logic for incorrect answer (subtract time)
     timeLeft -= 10; // Subtract 10 seconds for an incorrect answer
     if (timeLeft < 0) {
       timeLeft = 0;
