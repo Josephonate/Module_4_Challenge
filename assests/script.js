@@ -10,109 +10,132 @@ const questionsArray = [
     {
         question: "Inside which HTML element do we put the JavaScript?",
 
-        ans_a: "<scripting>", correct: true,
-        ans_b: "<script>", correct: false,
-        ans_c: "<javascript>", correct: false,
-        ans_d: "<js>", correct: false,
-
+        choices: ["<scripting>", "<script>", "<javascript>", "<js>"],
+        correct: "<scripting>"
     },
     {
         question: "Which event occurs when the user clicks on an HTML element?",
 
-
-        ans_a: "onchange", correct: false,
-        ans_b: "onmouseover", correct: false,
-        ans_c: "onmouseclick", correct: false,
-        ans_d: "onclick", correct: true,
-
+        choices: ["onchange", "onmouseover", "onmouseclick", "onclick",],
+        correct: "onclick",
     },
     {
         question: "Which operator is used to assign a value to a variable",
 
-        ans_a: "=", correct: true,
-        ans_b: "X", correct: false,
-        ans_c: "*", correct: false,
-        ans_d: "-", correct: false,
-
+        choices: ["=", "X", "*", "-",],
+        correct: "=",
     },
     {
         question: "How to write an IF statement in JavaScript?",
 
-        ans_a: "if i==5 then", correct: false,
-        ans_b: "if (i==5)", correct: true,
-        ans_c: "if i=5 then", correct: false,
-        ans_d: "if i=5", correct: false,
-
+        choices: ["if i==5 then", "if (i==5)", "if i=5 then", "if i=5"],
+        correct: "if (i==5)",
     },
     {
         question: "How does a FOR loop start?",
 
-        ans_a: "for (i=0;i<=5;i++)", correct: true,
-        ans_b: "for (i=0;i<=5)", correct: false,
-        ans_c: "for i= 1 to 5", correct: false,
-        ans_d: "for (i<=5;i++", correct: false,
-
+        choices: ["for (i=0;i<=5;i++)", "for (i=0;i<=5)", "for i= 1 to 5", "for (i<=5;i++"],
+        correct: "for (i=0;i<=5;i++)",
     }
-]
+];
+
+let currentQuestionIndex = 0;
+let timeLeft = 60; // Total time for the quiz
+let timerInterval;
+
+const startButton = document.getElementById("start-button");
+const quizContainer = document.getElementById("quiz-container");
 const questionElement = document.getElementById("question");
-const answerButton = document.getElementById("answer-btn");
-const ans_a = document.getElementById("ans_b")
-const ans_b = document.getElementById("ans_c")
-const ans_c = document.getElementById("ans_d")
-const ans_d = document.getElementById("ans_a")
-const nextButton = document.getElementById("next-btn");
-const startButton = document.getElementById("start-btn");
-const highScore = document.getElementById("score-btn");
-var questionIndex = 0;
+const choicesElement = document.getElementById("choices");
+const timerElement = document.getElementById("time-left");
+const gameOverElement = document.getElementById("game-over");
+const initialsInput = document.getElementById("initials");
+const submitScoreButton = document.getElementById("submit-score");
+const highScoresElement = document.getElementById("high-scores");
+const scoreListElement = document.getElementById("score-list");
 
-// This function shows my question and answers
+function startQuiz() {
+  startButton.style.display = "none";
+  quizContainer.style.display = "block";
+  showQuestion();
+  startTimer();
+}
+
 function showQuestion() {
-    var currentQuestion = questionsArray[questionIndex];
+  if (currentQuestionIndex < questionsArray.length) {
+    const question = questionsArray[currentQuestionIndex];
+    questionElement.textContent = question.question;
+    choicesElement.innerHTML = "";
 
-    document.getElementById("question").textContent = currentQuestion.question;
-    document.getElementById("ans_a").textContent = currentQuestion.ans_a;
-    document.getElementById("ans_b").textContent = currentQuestion.ans_b;
-    document.getElementById("ans_c").textContent = currentQuestion.ans_c;
-    document.getElementById("ans_d").textContent = currentQuestion.ans_d;
-}
-// This function goes to the next set of questions after I push next
-function showNextQuestion() {
-    questionIndex++
-    if (questionIndex < questionsArray.length) {
-        showQuestion()
+    for (const choice of question.choices) {
+      const choiceButton = document.createElement("button");
+      choiceButton.textContent = choice;
+      choiceButton.addEventListener("click", checkAnswer);
+      choicesElement.appendChild(choiceButton);
     }
+  } else {
+    endQuiz();
+  }
 }
-showQuestion()
-// this is my event listener so that I can hide my start buttons and show my questions.
-startButton.addEventListener("click", function () {
-    startButton.classList.add("hide");
-    highScore.classList.add("hide");
-    answerButton.classList.remove("hide");
-    nextButton.classList.remove("hide");
-    questionElement.classList.remove("hide");
-})
 
-function verifyAnswer() {
+function checkAnswer(event) {
+  const selectedChoice = event.target.textContent;
+  const correctAnswer = questionsArray[currentQuestionIndex].correct;
 
-    if (questionsArray.ans_a && questionsArray.correct === true) {
-        document.getElementById("ans_a").style.color = "green";
-    } else {
-        document.getElementById("ans_a").style.color = "red";
+  if (selectedChoice === correctAnswer) {
+    // Implement logic for correct answer
+  } else {
+    // Implement logic for incorrect answer (subtract time)
+    timeLeft -= 10; // Subtract 10 seconds for an incorrect answer
+    if (timeLeft < 0) {
+      timeLeft = 0;
     }
-    if (questionsArray.ans_a && questionsArray.correct === true) {
-        document.getElementById("ans_b").style.color = "green";
-    } else {
-        document.getElementById("ans_b").style.color = "red";
-    }
-    if (questionsArray.ans_a && questionsArray.correct === true) {
-        document.getElementById("ans_c").style.color = "green";
-    } else {
-        document.getElementById("ans_c").style.color = "red";
-    }
-    if (questionsArray.ans_a && questionsArray.correct === true) {
-        document.getElementById("ans_d").style.color = "green";
-    } else {
-        document.getElementById("ans_d").style.color = "red";
-    }
+  }
+
+  currentQuestionIndex++;
+  showQuestion();
 }
-// verifyAnswer()
+
+function startTimer() {
+  timerInterval = setInterval(function () {
+    timeLeft--;
+    timerElement.textContent = timeLeft;
+    if (timeLeft <= 0) {
+      endQuiz();
+    }
+  }, 1000);
+}
+
+function endQuiz() {
+  clearInterval(timerInterval);
+  quizContainer.style.display = "none";
+  gameOverElement.style.display = "block";
+}
+
+submitScoreButton.addEventListener("click", function () {
+  const initials = initialsInput.value;
+  // Store the initials and score in local storage or send them to a server
+  // Implement your high score storage logic here.
+  // Example of storing in local storage:
+  localStorage.setItem(initials, timeLeft);
+
+  // Display high scores
+  showHighScores();
+});
+
+function showHighScores() {
+  // Retrieve scores from local storage and display them
+  highScoresElement.style.display = "block";
+  gameOverElement.style.display = "none";
+
+  scoreListElement.innerHTML = "";
+  for (let i = 0; i < localStorage.length; i++) {
+    const initials = localStorage.key(i);
+    const score = localStorage.getItem(initials);
+    const scoreItem = document.createElement("li");
+    scoreItem.textContent = `${initials}: ${score}`;
+    scoreListElement.appendChild(scoreItem);
+  }
+}
+
+startButton.addEventListener("click", startQuiz);
