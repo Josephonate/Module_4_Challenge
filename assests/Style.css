@@ -1,36 +1,40 @@
 /* Reset some default styles */
-body, h1, ul {
+body,
+h1,
+ul {
     margin: 0;
     padding: 0;
-  }
-  
-  body {
+}
+
+body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background-color: #f0f0f0;
     text-align: center;
     padding: 20px;
-  }
-  
-  h1 {
+}
+
+h1 {
     margin-bottom: 20px;
-  }
-  
-  #quiz-container {
+}
+
+#quiz-container {
     background-color: #fff;
+    width: 75%;
+    margin: auto;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-bottom: 20px;
-  }
-  
-  #question {
+}
+
+#question {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
-  }
-  
-  #choices button {
+}
+
+#choices button {
     display: block;
     width: 100%;
     padding: 10px;
@@ -40,41 +44,53 @@ body, h1, ul {
     background-color: #f9f9f9;
     cursor: pointer;
     transition: background-color 0.2s ease;
-  }
-  
-  #choices button:hover {
-    background-color: #f0f0f0;
-  }
-  
-  #timer {
+}
+#choices button:hover {
+    background-color: #2473f2;
+}
+
+#choices button.correct {
+    background-color: #20d320;
+    color: #fff;
+}
+
+#choices button.incorrect {
+    background-color: #e31919;
+    color: #fff;
+}
+
+#timer {
     font-size: 18px;
     margin-bottom: 20px;
-  }
-  
-  #game-over, #high-scores {
+}
+
+#game-over,
+#high-scores {
     display: none;
-  }
-  
-  #game-over p {
+    width: 10%;
+    margin: auto;
+}
+
+#game-over p {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-  }
-  
-  #game-over label {
+}
+
+#game-over label {
     display: block;
     margin-bottom: 10px;
-  }
-  
-  #game-over input {
+}
+
+#game-over input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-  }
-  
-  #game-over button {
+}
+
+#game-over button {
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
@@ -82,29 +98,29 @@ body, h1, ul {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s ease;
-  }
-  
-  #game-over button:hover {
+}
+
+#game-over button:hover {
     background-color: #0056b3;
-  }
-  
-  #high-scores h2 {
+}
+
+#high-scores h2 {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
-  }
-  
-  #score-list {
+}
+
+#score-list {
     list-style: none;
     padding: 0;
-  }
-  
-  #score-list li {
+}
+
+#score-list li {
     font-size: 18px;
     margin-bottom: 10px;
-  }
-  
-  #start-button {
+}
+
+#start-button {
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
@@ -112,9 +128,8 @@ body, h1, ul {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s ease;
-  }
-  
-  #start-button:hover {
+}
+
+#start-button:hover {
     background-color: #0056b3;
-  }
-  
+}

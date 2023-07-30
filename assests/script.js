@@ -79,21 +79,29 @@ function showQuestion() {
 }
 
 function checkAnswer(event) {
-  const selectedChoice = event.target.textContent;
+    const selectedChoice = event.target;
   const correctAnswer = questionsArray[currentQuestionIndex].correct;
 
-  if (selectedChoice === correctAnswer) {
-    
+  // Disable further clicking on answer buttons
+  choicesElement.querySelectorAll("button").forEach(button => {
+    button.disabled = true;
+  });
+
+  if (selectedChoice.textContent === correctAnswer) {
+    selectedChoice.classList.add("correct");
   } else {
+    selectedChoice.classList.add("incorrect");
+
     // logic for incorrect answer (subtract time)
     timeLeft -= 10; // Subtract 10 seconds for an incorrect answer
     if (timeLeft < 0) {
       timeLeft = 0;
     }
   }
-
-  currentQuestionIndex++;
-  showQuestion();
+    currentQuestionIndex++;
+    // Wait for a short duration (e.g., 1 second) before showing the next question
+    setTimeout(showQuestion, 1000);
+  
 }
 
 function startTimer() {
