@@ -18,3 +18,5 @@ WHEN the game is over
 THEN I can save my initials and score
 
 https://josephonate.github.io/Quiz-using-JS/
+
+![Alt text](image.png)
