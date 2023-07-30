@@ -47,6 +47,7 @@ const startButton = document.getElementById("start-button");
 const quizContainer = document.getElementById("quiz-container");
 const questionElement = document.getElementById("question");
 const choicesElement = document.getElementById("choices");
+const clockElement = document.getElementById("timer");
 const timerElement = document.getElementById("time-left");
 const gameOverElement = document.getElementById("game-over");
 const initialsInput = document.getElementById("initials");
@@ -57,6 +58,7 @@ const scoreListElement = document.getElementById("score-list");
 function startQuiz() {
   startButton.style.display = "none";
   quizContainer.style.display = "block";
+  clockElement.classList.remove("hide");
   showQuestion();
   startTimer();
 }
