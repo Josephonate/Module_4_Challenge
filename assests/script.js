@@ -65,11 +65,11 @@ function startQuiz() {
 
 function showQuestion() {
   if (currentQuestionIndex < questionsArray.length) {
-    const question = questionsArray[currentQuestionIndex];
-    questionElement.textContent = question.question;
+    const questions = questionsArray[currentQuestionIndex];
+    questionElement.textContent = questions.question;
     choicesElement.innerHTML = "";
 
-    for (const choice of question.choices) {
+    for (const choice of questions.choices) {
       const choiceButton = document.createElement("button");
       choiceButton.textContent = choice;
       choiceButton.addEventListener("click", checkAnswer);
